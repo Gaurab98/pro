@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Pasal Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <div class="topbar">
+        <h1><img src="bg.png" alt="Logo" class="topbar-logo"> Pasal Management System</h1>
+        <button class="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Open menu">⋮</button>
+        <div class="topbar-right">
+            <span id="currentDate"></span>
+            <div class="user-info">
+                <span class="user-icon">👤</span>
+                <span id="loggedInUser" class="username">Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-date"><span></span></div>
+            <div class="sidebar-user user-info">
+                <span class="user-icon">👤</span>
+                <span class="sidebar-username">Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        <nav>
+            <a href="dashboard.html" class="nav-link">📊 Dashboard</a>
+            <a href="products.html" class="nav-link">📦 Products</a>
+            <a href="sold-items.html" class="nav-link">🛒 Sold Items</a>
+            <a href="cart.html" class="nav-link active">🧾 Cart</a>
+            <a href="warranty.html" class="nav-link">⏰ Warranty Forecast</a>
+            <a href="reports.html" class="nav-link">📄 Reports</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <section class="page-section active">
+            <div class="section-header">
+                <h2>Cart</h2>
+            </div>
+
+            <div class="table-container">
+                <table id="cartTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price (Rs.)</th>
+                            <th>Quantity</th>
+                            <th>Expire Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartTableBody"></tbody>
+                </table>
+            </div>
+
+            <div class="cart-actions">
+                <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
+                <button class="btn btn-secondary" id="clearCartBtn">Clear Cart</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="cart.js"></script>
+    <script src="mobile.js"></script>
+    <script src="common.js"></script>
+</body>
+</html>

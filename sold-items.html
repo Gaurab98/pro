@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sold Items - Pasal Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sold-items.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="topbar">
+        <h1><img src="bg.png" alt="Logo" class="topbar-logo"> Pasal Management System</h1>
+        <button class="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Open menu">⋮</button>
+        <div class="topbar-right">
+            <span id="currentDate"></span>
+            <div class="user-info">
+                <span class="user-icon">👤</span>
+                <span id="loggedInUser" class="username">Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-date"><span></span></div>
+            <div class="sidebar-user user-info">
+                <span class="user-icon">👤</span>
+                <span class="sidebar-username">Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        <nav>
+            <a href="dashboard.html" class="nav-link">
+                <span>📊</span> Dashboard
+            </a>
+            <a href="products.html" class="nav-link">
+                <span>📦</span> Products
+            </a>
+            <a href="sold-items.html" class="nav-link active">
+                <span>🛒</span> Sold Items
+            </a>
+            <a href="cart.html" class="nav-link">
+                <span>🧾</span> Cart
+            </a>
+            <a href="warranty.html" class="nav-link">
+                <span>⏰</span> Warranty Forecast
+            </a>
+            <a href="reports.html" class="nav-link">
+                <span>📄</span> Reports
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <section id="sold-items" class="page-section active">
+            <div class="section-header">
+                <h2>Sold Items Tracking</h2>
+            </div>
+
+            <div class="search-filter-bar">
+                <input type="text" id="soldItemSearch" placeholder="🔍 Search by IMEI, name, or invoice..." onkeyup="filterSoldItems()">
+                <select id="statusFilter" onchange="filterSoldItems()">
+                    <option value="">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="soon">Expiring Soon</option>
+                    <option value="expired">Expired</option>
+                    <option value="returned">Returned</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table id="soldItemsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price (Rs.)</th>
+                            <th>Quantity</th>
+                            <th>Supplier</th>
+                            <th>Expire Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="soldItemsTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Add Sold Item UI removed per request -->
+
+    <script src="sold-items.js"></script>
+    <script src="mobile.js"></script>
+    <script src="common.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Pasal Management</title>
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="topbar">
+        <h1><img src="bg.png" alt="Logo" class="topbar-logo"> Pasal Management System</h1>
+        <button class="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Open menu">⋮</button>
+        <div class="topbar-right">
+            <span id="currentDate"></span>
+            <div class="user-info">
+                <span class="user-icon">👤</span>
+                <span id="loggedInUser" class="username">Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-date"><span></span></div>
+            <div class="sidebar-user user-info">
+                <span class="user-icon">👤</span>
+                <span class="sidebar-username">Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        <nav>
+            <a href="dashboard.html" class="nav-link">
+                <span>📊</span> Dashboard
+            </a>
+            <a href="products.html" class="nav-link active">
+                <span>📦</span> Products
+            </a>
+            <a href="sold-items.html" class="nav-link">
+                <span>🛒</span> Sold Items
+            </a>
+            <a href="warranty.html" class="nav-link">
+                <span>⏰</span> Warranty Forecast
+            </a>
+            <a href="reports.html" class="nav-link">
+                <span>📄</span> Reports
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <section id="products" class="page-section active">
+            <div class="section-header">
+                <h2>Product Management</h2>
+                <button class="btn btn-primary" onclick="openProductModal()">+ Add Product</button>
+            </div>
+
+            <div class="search-filter-bar">
+                <input type="text" id="productSearch" placeholder="🔍 Search products..." onkeyup="filterProducts()">
+                <select id="categoryFilter" onchange="filterProducts()">
+                    <option value="">All Categories</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table id="productsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price (Rs.)</th>
+                            <th>Quantity</th>
+                            <th>Expire Date</th>
+                            <th>Supplier</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductModal()">&times;</span>
+            <h2 id="productModalTitle">Add Product</h2>
+            <form id="productForm" onsubmit="saveProduct(event)">
+                <input type="hidden" id="productId">
+                
+                <div class="form-group">
+                    <label>Product Name *</label>
+                    <input type="text" id="productName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Category *</label>
+                    <select id="productCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Groceries">Groceries</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Price (Rs.) *</label>
+                    <input type="number" id="productPrice" required min="0" step="0.01">
+                </div>
+                
+                <div class="form-group">
+                    <label>Quantity *</label>
+                    <input type="number" id="productQuantity" required min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label>Supplier</label>
+                    <input type="text" id="productSupplier">
+                </div>
+
+                <div class="form-group">
+                    <label>Expire Date</label>
+                    <input type="date" id="productExpireDate">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeProductModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="products.js"></script>
+    <script src="mobile.js"></script>
+    <script src="common.js"></script>
+</body>
+</html>

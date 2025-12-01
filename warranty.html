@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warranty Forecast - Pasal Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="warranty.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="topbar">
+        <h1><img src="bg.png" alt="Logo" class="topbar-logo"> Pasal Management System</h1>
+        <button class="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Open menu">⋮</button>
+        <div class="topbar-right">
+            <span id="currentDate"></span>
+            <div class="user-info">
+                <span class="user-icon">👤</span>
+                <span id="loggedInUser" class="username">Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-date"><span></span></div>
+            <div class="sidebar-user user-info">
+                <span class="user-icon">👤</span>
+                <span class="sidebar-username">Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        <nav>
+            <a href="dashboard.html" class="nav-link">
+                <span>📊</span> Dashboard
+            </a>
+            <a href="products.html" class="nav-link">
+                <span>📦</span> Products
+            </a>
+            <a href="sold-items.html" class="nav-link">
+                <span>🛒</span> Sold Items
+            </a>
+            <a href="warranty.html" class="nav-link active">
+                <span>⏰</span> Warranty Forecast
+            </a>
+            <a href="reports.html" class="nav-link">
+                <span>📄</span> Reports
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <section id="warranty" class="page-section active">
+            <h2>Warranty Expiry Forecast</h2>
+            
+            <div class="warranty-forecast-grid">
+                <div class="forecast-card green-card">
+                    <h3>✅ Active Warranties</h3>
+                    <div class="forecast-count" id="activeWarrantyCount">0</div>
+                    <div id="activeWarrantyList" class="forecast-list"></div>
+                </div>
+                
+                <div class="forecast-card orange-card">
+                    <h3>⚠️ Expiring This Week</h3>
+                    <div class="forecast-count" id="weekWarrantyCount">0</div>
+                    <div id="weekWarrantyList" class="forecast-list"></div>
+                </div>
+                
+                <div class="forecast-card red-card">
+                    <h3>🔴 Expired</h3>
+                    <div class="forecast-count" id="expiredWarrantyCount">0</div>
+                    <div id="expiredWarrantyList" class="forecast-list"></div>
+                </div>
+            </div>
+
+            <div class="warranty-details">
+                <h3>Today's Expiring Items</h3>
+                <div id="todayExpiringList" class="detail-list"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="warranty.js"></script>
+    <script src="mobile.js"></script>
+    <script src="common.js"></script>
+</body>
+</html>

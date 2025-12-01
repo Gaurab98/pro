@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasal Management System</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="logo-container">
+                <div class="logo-circle">
+                    <img src="bg.png" alt="Logo" class="logo-img">
+                </div>
+            </div>
+            <h1 class="hero-title">Pasal Management System</h1>
+            <h2 class="hero-subtitle">Your Complete Shop Solution</h2>
+            <p class="hero-description">Simple and Effective Solution for Your Business Management</p>
+            <button class="cta-button" onclick="showLoginModal()">
+                <span>Enter System</span>
+                <span class="arrow">→</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <div class="container">
+            <h2 class="section-title">Our Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Dashboard</h3>
+                    <span class="feature-desc">Complete business overview in one place</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Product Management</h3>
+                    <span class="feature-desc">Easily add and manage your products</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Sales Records</h3>
+                    <span class="feature-desc">Complete details of sold items</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Warranty Tracking</h3>
+                    <span class="feature-desc">Track warranty expiration dates</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Reports & Analytics</h3>
+                    <span class="feature-desc">Detailed sales and business reports</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3>Data Security</h3>
+                    <span class="feature-desc">Your data stored securely</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">✅</div>
+                    <h4>Easy to Use</h4>
+                    <p>Simple interface for everyone</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚀</div>
+                    <h4>Fast & Efficient</h4>
+                    <p>Quick operations and responses</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📱</div>
+                    <h4>Mobile Friendly</h4>
+                    <p>Works on all devices</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔒</div>
+                    <h4>Secure</h4>
+                    <p>Your data is protected</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="bg.png" alt="Logo" class="footer-logo-img">
+                    <span>Pasal Management System</span>
+                </div>
+                <p class="footer-text">Made for Local Business Owners</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <div class="login-header">
+                <div class="login-icon">🔐</div>
+                <h2>Admin Login</h2>
+                <p>Enter your credentials to access the system</p>
+            </div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="loginUsername" required placeholder="Enter username" autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Enter password" autocomplete="current-password">
+                </div>
+
+                <div id="loginError" class="error-message" style="display: none;"></div>
+
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+
+            <div class="login-footer">
+                <p>No account? <a href="#" onclick="showSignupModal()">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="login-modal" style="display:none;">
+        <div class="login-modal-content">
+            <span class="close" onclick="closeSignupModal()">&times;</span>
+            <div class="login-header">
+                <div class="login-icon">📝</div>
+                <h2>Create Account</h2>
+                <p>Fill the form to create a new admin account</p>
+            </div>
+
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="signupUsername" required placeholder="Enter username" autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="signupPassword" required placeholder="Enter password" autocomplete="new-password">
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" required placeholder="Confirm password" autocomplete="new-password">
+                </div>
+
+                <div id="signupError" class="error-message" style="display: none;"></div>
+
+                <button type="submit" class="btn-login">Create Account</button>
+            </form>
+
+            <div class="login-footer">
+                <p>Already have an account? <a href="#" onclick="closeSignupModal(); showLoginModal();">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

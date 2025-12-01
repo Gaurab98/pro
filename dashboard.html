@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Pasal Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="topbar">
+        <h1><img src="bg.png" alt="Logo" class="topbar-logo"> Pasal Management System</h1>
+        <button class="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Open menu">⋮</button>
+        <div class="topbar-right">
+            <span id="currentDate"></span>
+            <div class="user-info">
+                <span class="user-icon">👤</span>
+                <span id="loggedInUser" class="username">Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-date"><span></span></div>
+            <div class="sidebar-user user-info">
+                <span class="user-icon">👤</span>
+                <span class="sidebar-username">Admin</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        <nav>
+            <a href="dashboard.html" class="nav-link active">
+                <span>📊</span> Dashboard
+            </a>
+            <a href="products.html" class="nav-link">
+                <span>📦</span> Products
+            </a>
+            <a href="sold-items.html" class="nav-link">
+                <span>🛒</span> Sold Items
+            </a>
+            <a href="warranty.html" class="nav-link">
+                <span>⏰</span> Warranty Forecast
+            </a>
+            <a href="reports.html" class="nav-link">
+                <span>📄</span> Reports
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <section id="dashboard" class="page-section active">
+            <h2>Dashboard Overview</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card blue">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-info">
+                        <h3 id="totalProducts">0</h3>
+                        <p>Total Products</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card green">
+                    <div class="stat-icon">🛒</div>
+                    <div class="stat-info">
+                        <h3 id="totalSoldItems">0</h3>
+                        <p>Sold Items</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card orange">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-info">
+                        <h3 id="warrantyItems">0</h3>
+                        <p>Active Warranties</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card red">
+                    <div class="stat-icon">⚠️</div>
+                    <div class="stat-info">
+                        <h3 id="expiringSoon">0</h3>
+                        <p>Expiring Soon (7 days)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-alerts">
+                <div class="alert-box">
+                    <h3>🔴 Low Stock Alert</h3>
+                    <div id="lowStockList"></div>
+                </div>
+                
+                <div class="alert-box">
+                    <h3>⚠️ Warranty Expiring Soon</h3>
+                    <div id="warrantyExpiringList"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script src="mobile.js"></script>
+    <script src="common.js"></script>
+</body>
+</html>
